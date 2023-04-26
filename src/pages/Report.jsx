@@ -1,6 +1,11 @@
+import { useLocation } from "react-router-dom";
+import Navbar from "../components/Navbar";
+
 const Report = () => {
+  const { state } = useLocation();
   return (
     <>
+      {console.log(state)}
       <div className="h-auto w-screen p-5 relative pb-16">
         <div className="flex justify-between pb-16">
           <h1 className="robo text-3xl font-black">New Report</h1>
@@ -56,12 +61,7 @@ const Report = () => {
             Submit
           </button>
         </div>
-        <div className="w-screen h-20 border-2 border-black bg-white fixed bottom-0 left-0 flex items-center justify-between px-5">
-          <img src="/addReport.png" alt="Add a new report" />
-          <img src="/search.png" alt="Add a new report" />
-          <img src="/compass.png" alt="Add a new report" />
-          <img src="/chat.png" alt="Add a new report" />
-        </div>
+        <Navbar />
       </div>
     </>
   );
