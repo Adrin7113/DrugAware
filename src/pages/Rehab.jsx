@@ -1,8 +1,10 @@
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { useEffect } from "react";
 
 const Rehab = () => {
   const { state } = useLocation();
+  useEffect(() => {}, []);
   return (
     <>
       {state && (
