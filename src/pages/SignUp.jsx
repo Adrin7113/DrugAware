@@ -3,6 +3,7 @@ import sha256 from "crypto-js/sha256";
 import Base64 from "crypto-js/enc-base64";
 import { supabase } from "../js/supabaseClient";
 import { useState } from "react";
+
 const SignUp = () => {
   const [submitted, setSubmitted] = useState("Submit");
   const userid = alphanumeric(6);
@@ -37,13 +38,13 @@ const SignUp = () => {
           <input
             type="text"
             id="phone"
-            placeholder="Please enter your phone number"
+            placeholder="Phone Number"
             className="h-16 w-full bg-[#D9D9D9] text-[#696969] rounded-xl text-xl px-5"
           />
           <input
             type="text"
             id="password"
-            placeholder="Please enter a password"
+            placeholder="Password"
             className="h-16 w-full bg-[#D9D9D9] text-[#696969] rounded-xl text-xl px-5"
           />
           <button
