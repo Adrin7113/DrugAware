@@ -28,7 +28,7 @@ const Navbar = (state) => {
         alt="Add a new report"
       />
 
-      <a href="/chat">
+      <a href="https://mediafiles.botpress.cloud/0bd83da3-81dd-4503-9d3b-002c13c261d4/webchat/bot.html">
         <img src="/chat.png" alt="Add a new report" />
       </a>
     </div>
