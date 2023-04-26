@@ -8,7 +8,7 @@ const Rehab = () => {
       {state && (
         <div className="h-auto w-screen p-5 pb-24 relative">
           <div className="flex justify-between pb-16">
-            <h1 className="robo text-3xl font-black w-1/2">
+            <h1 className="robo text-3xl font-black w-1/2 text-[#BB0C0C]">
               Nearby Rehabilitation Centers
             </h1>
             <img src="/user.svg" alt="The Navigation Icon" />

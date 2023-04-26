@@ -59,7 +59,9 @@ const Report = () => {
       {state && (
         <div className="h-auto w-screen p-5 relative pb-16">
           <div className="flex justify-between pb-16">
-            <h1 className="robo text-3xl font-black">New Report</h1>
+            <h1 className="robo text-3xl font-black text-[#BB0C0C]">
+              New Report
+            </h1>
             <img src="/user.svg" alt="The Navigation Icon" />
           </div>
           <h1 className="text-2xl robo pb-5">Location</h1>

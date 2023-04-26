@@ -6,6 +6,7 @@ import Map from "./pages/Map";
 import AdminLogin from "./pages/AdminLogin";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import Chat from "./pages/Chat";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/report" element={<Report />} />
           <Route path="/rehab" element={<Rehab />} />
           <Route path="/map" element={<Map />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
       </BrowserRouter>
     </>
