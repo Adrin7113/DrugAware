@@ -3,6 +3,19 @@ import Navbar from "../components/Navbar";
 
 const Report = () => {
   const { state } = useLocation();
+  var x = document.getElementById("x");
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+  function showPosition(position) {
+    // x.innerHTML = "Latitude: " + position.coords.latitude +
+    // "<br>Longitude: " + position.coords.longitude;
+    console.log(position.coords.latitude, position.coords.longitude);
+  }
   return (
     <>
       {console.log(state)}
@@ -12,10 +25,10 @@ const Report = () => {
           <img src="/user.svg" alt="The Navigation Icon" />
         </div>
         <h1 className="text-2xl robo pb-5">Location</h1>
-        <button className="w-full bg-[#D9D9D9] rounded-2xl h-16 text-xl robo text-[#696969]">
+        <button className="w-full bg-[#D9D9D9] rounded-2xl h-16 text-xl robo text-[#696969]" onClick={getLocation}>
           Detect Automatically
         </button>
-        <h1 className="robo text-center w-full text-lg py-4">Or</h1>
+        <h1 id="x" className="robo text-center w-full text-lg py-4">Or</h1>
         <input
           type="text"
           className="w-full bg-[#D9D9D9] rounded-2xl h-16 text-xl robo placeholder-[#696969] text-[#696969] text-center"
@@ -66,5 +79,6 @@ const Report = () => {
     </>
   );
 };
+
 
 export default Report;
