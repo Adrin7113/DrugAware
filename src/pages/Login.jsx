@@ -13,7 +13,7 @@ const Login = () => {
       .select("*")
       .eq("password", hash);
     if (data) {
-      navigate("/report", { state: true });
+      navigate("/report", { state: data[0].userId });
     }
     if (error) {
       console.log(error);
