@@ -21,7 +21,7 @@ const AdminLogin = () => {
     });
 
     return () => subscription.unsubscribe();
-  }, [supabase.auth]);
+  }, []);
 
   if (!session) {
     return (
@@ -40,7 +40,7 @@ const AdminLogin = () => {
       />
     );
   } else {
-    return navigate("/report", { state: true });
+    return navigate("/report", { state: "ADMIN" });
   }
 };
 

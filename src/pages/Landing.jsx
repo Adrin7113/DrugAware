@@ -12,7 +12,7 @@ const Landing = () => {
             Signup
           </button>
         </a>
-        <a>
+        <a href="/login">
           <button
             type="text"
             className="h-16 w-full bg-[#D9D9D9] text-[#696969] rounded-xl text-xl"
