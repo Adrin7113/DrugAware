@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../js/supabaseClient";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
-  const supabase = createClient(
-    "https://tbdjoduckjgzgfmbtyvs.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRiZGpvZHVja2pnemdmbWJ0eXZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODI0ODQzMzUsImV4cCI6MTk5ODA2MDMzNX0.GVZeuwjn_UE7HYLu7e_C9CuEpez6pudx1GtMNbMgDKU"
-  );
+
   const [session, setSession] = useState(null);
 
   useEffect(() => {

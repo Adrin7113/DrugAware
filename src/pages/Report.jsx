@@ -3,7 +3,6 @@ import Navbar from "../components/Navbar";
 
 const Report = () => {
   const { state } = useLocation();
-  var x = document.getElementById("x");
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
@@ -12,8 +11,12 @@ const Report = () => {
     }
   }
   function showPosition(position) {
-    // x.innerHTML = "Latitude: " + position.coords.latitude +
-    // "<br>Longitude: " + position.coords.longitude;
+    const location = document.getElementById("location");
+    location.value =
+      "Latitude: " +
+      position.coords.latitude +
+      "Longitude: " +
+      position.coords.longitude;
     console.log(position.coords.latitude, position.coords.longitude);
   }
   return (
@@ -25,11 +28,15 @@ const Report = () => {
           <img src="/user.svg" alt="The Navigation Icon" />
         </div>
         <h1 className="text-2xl robo pb-5">Location</h1>
-        <button className="w-full bg-[#D9D9D9] rounded-2xl h-16 text-xl robo text-[#696969]" onClick={getLocation}>
+        <button
+          className="w-full bg-[#D9D9D9] rounded-2xl h-16 text-xl robo text-[#696969]"
+          onClick={() => getLocation()}
+        >
           Detect Automatically
         </button>
-        <h1 id="x" className="robo text-center w-full text-lg py-4">Or</h1>
+        <h1 className="robo text-center w-full text-lg py-4">Or</h1>
         <input
+          id="location"
           type="text"
           className="w-full bg-[#D9D9D9] rounded-2xl h-16 text-xl robo placeholder-[#696969] text-[#696969] text-center"
           placeholder="Enter It Manually"
@@ -79,6 +86,5 @@ const Report = () => {
     </>
   );
 };
-
 
 export default Report;
