@@ -1,6 +1,9 @@
 const Landing = () => {
   return (
-    <div className="h-screen w-screen p-5 flex flex-col justify-center gap-5 items-center">
+    <div className="relative h-screen w-screen p-5 flex flex-col justify-center gap-5 items-center">
+      <h1 className="text-2xl robo text-[#BB0C0C] font-bold absolute top-5 left-5">
+        Prevnt.
+      </h1>
       <div className="h-1/2 w-full flex flex-col justify-center gap-5">
         <h1 className="text-4xl robo text-center font-bold">
           Welcome<span className="text-[#BB0C0C]">.</span>

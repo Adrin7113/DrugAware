@@ -8,8 +8,10 @@ import {
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     const proceed = document.getElementById("proceedButton");
     proceed.classList.add("hidden");
@@ -40,6 +42,7 @@ const SignUp = () => {
       console.log(error);
     } else {
       setSubmitted("Submitted");
+      navigate("/");
     }
     const { errorRead } = await supabase.from("UserRead").insert({
       userId: userid,
