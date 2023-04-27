@@ -32,7 +32,7 @@ const AdminLogin = () => {
           extend: true,
           // Your custom classes
           className: {
-            button: "bg-green-400",
+            button: "bg-[#F1E7E7]",
             //..
           },
         }}
@@ -40,7 +40,11 @@ const AdminLogin = () => {
       />
     );
   } else {
-    return navigate("/report", { state: "ADMIN" });
+    if (session.user.id === "116a3600-abf6-4345-b29f-db8017c5d8a3") {
+      return navigate("/report", { state: "SUPER-ADMIN" });
+    } else {
+      return navigate("/report", { state: "ADMIN" });
+    }
   }
 };
 

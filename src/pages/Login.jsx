@@ -29,11 +29,11 @@ const Login = () => {
             type="text"
             id="password"
             placeholder="Please enter your password"
-            className="h-16 w-full bg-[#D9D9D9] text-[#696969] rounded-xl text-xl px-5"
+            className="h-16 w-full bg-[#F1E7E7] text-[#696969] rounded-xl text-xl px-5"
           />
           <button
             onClick={() => login()}
-            className="h-16 w-full bg-[#D9D9D9] text-[#696969] rounded-xl text-xl"
+            className="h-16 w-full bg-[#F1E7E7] text-[#696969] rounded-xl text-xl"
           >
             Login
           </button>

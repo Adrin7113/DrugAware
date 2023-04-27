@@ -19,6 +19,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
     "react-simple-captcha": "^9.0.2",
+    "sweetalert2": "^11.7.3",
     "twilio": "^4.10.0"
   },
   "devDependencies": {

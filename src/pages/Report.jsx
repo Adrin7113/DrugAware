@@ -3,9 +3,12 @@ import Navbar from "../components/Navbar";
 import { supabase } from "../js/supabaseClient";
 import { useState } from "react";
 import alphanumeric from "alphanumeric-id";
+import Swal from "sweetalert2";
 
 const Report = () => {
   const { state } = useLocation();
+  const [submitting, setSubmitting] = useState("Submit");
+  console.log(state);
   const userId = state;
   function getLocation() {
     if (navigator.geolocation) {
@@ -26,6 +29,7 @@ const Report = () => {
     setfile(e.target.files[0]);
   };
   const handleSubmit = async () => {
+    setSubmitting("Submitting");
     const amount = document.getElementById("amount").value;
     const desc = document.getElementById("description").value;
     const latitude = document.getElementById("latitude").value;
@@ -39,6 +43,8 @@ const Report = () => {
       });
     if (errorImg) {
       console.log(errorImg);
+      setSubmitting("Error!");
+      Swal.fire("Oh no!", `Submission Unsuccessful!`, "error");
     } else {
       var imgUrl = data.path;
     }
@@ -52,6 +58,11 @@ const Report = () => {
     });
     if (error) {
       console.log(error);
+      setSubmitting("Error!");
+      Swal.fire("Oh no!", `Submission Unsuccessful!`, "error");
+    } else {
+      setSubmitting("Submitted!");
+      Swal.fire("Nice", `Successfully Submitted!`, "success");
     }
   };
   return (
@@ -62,11 +73,13 @@ const Report = () => {
             <h1 className="robo text-3xl font-black text-[#BB0C0C]">
               New Report
             </h1>
-            <img src="/user.svg" alt="The Navigation Icon" />
+            <a href="/">
+              <img src="/user.svg" alt="The Navigation Icon" />
+            </a>
           </div>
           <h1 className="text-2xl robo pb-5">Location</h1>
           <button
-            className="w-full bg-[#D9D9D9] rounded-2xl h-16 text-xl robo text-[#696969]"
+            className="w-full bg-[#F1E7E7] rounded-2xl h-16 text-xl robo text-[#696969]"
             onClick={() => getLocation()}
           >
             Detect Automatically
@@ -76,13 +89,13 @@ const Report = () => {
           <input
             id="latitude"
             type="text"
-            className="w-full bg-[#D9D9D9] rounded-2xl h-16 text-xl robo placeholder-[#696969] text-[#696969] text-center mb-4"
+            className="w-full bg-[#F1E7E7] rounded-2xl h-16 text-xl robo placeholder-[#696969] text-[#696969] text-center mb-4"
             placeholder="Latitude"
           />
           <input
             id="longitude"
             type="text"
-            className="w-full bg-[#D9D9D9] rounded-2xl h-16 text-xl robo placeholder-[#696969] text-[#696969] text-center"
+            className="w-full bg-[#F1E7E7] rounded-2xl h-16 text-xl robo placeholder-[#696969] text-[#696969] text-center"
             placeholder="Longitude"
           />
           <h1 className="text-lg robo py-5">
@@ -91,7 +104,7 @@ const Report = () => {
           <input
             id="amount"
             type="number"
-            className="w-6 h-12 bg-[#D9D9D9] border-2 border-black text-center placeholder-[#696969] text-[#696969]"
+            className="w-6 h-12 bg-[#F1E7E7] border-2 border-black text-center placeholder-[#696969] text-[#696969]"
             placeholder="0"
           ></input>
           <h1 className="text-2xl robo pt-5">
@@ -99,22 +112,22 @@ const Report = () => {
             <span className="text-[#696969] text-lg robo">(Optional)</span>
             <textarea
               id="description"
-              cols={25}
+              cols={23}
               rows={8}
-              className="bg-[#D9D9D9] rounded-xl text-[#696969] p-5 my-2"
+              className="bg-[#F1E7E7] rounded-xl text-[#696969] p-5 my-2"
             ></textarea>
           </h1>
           <div className="w-full h-44 flex gap-2">
             <label
               htmlFor="Img"
-              className="h-full w-1/2 border-2 rounded-xl flex flex-col justify-center items-center"
+              className="h-full w-full border-2 rounded-xl flex flex-col justify-center items-center"
             >
               <img
-                src="/camera.png"
+                src="/upload.png"
                 alt="Image of a camera"
                 className="w-12 h-12"
               ></img>
-              <h1 className="mt-2 robo text-lg">Take a photo</h1>
+              <h1 className="mt-2 robo text-lg">Upload an image</h1>
             </label>
             <input
               onChange={(e) => {
@@ -125,21 +138,13 @@ const Report = () => {
               name="image"
               className="hidden"
             />
-            <div className="h-full w-1/2 border-2 rounded-xl flex flex-col justify-center items-center">
-              <img
-                src="/upload.png"
-                alt="Image of a camera"
-                className="w-12 h-12"
-              ></img>
-              <h1 className="mt-2 robo text-lg">Upload an image</h1>
-            </div>
           </div>
           <div className="w-full h-24 flex justify-center">
             <button
               onClick={() => handleSubmit()}
-              className="w-1/3 self-center h-12 bg-[#D9D9D9] text-[#696969] text-xl rounded-3xl"
+              className="w-2/3 self-center h-12 bg-[#F1E7E7] text-[#696969] text-xl rounded-3xl "
             >
-              Submit
+              {submitting}
             </button>
           </div>
           <Navbar state={state} />

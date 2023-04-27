@@ -9,15 +9,15 @@ const Landing = () => {
         <a href="/signup">
           <button
             type="text"
-            className="h-16 w-full bg-[#EDE7E7] text-[#696969] rounded-xl text-xl"
+            className="h-16 w-full bg-[#F1E7E7] text-[#696969] rounded-xl text-xl"
           >
-            Signup
+            Sign Up
           </button>
         </a>
         <a href="/login">
           <button
             type="text"
-            className="h-16 w-full bg-[#EDE7E7] text-[#696969] rounded-xl text-xl"
+            className="h-16 w-full bg-[#F1E7E7] text-[#696969] rounded-xl text-xl"
           >
             Login
           </button>
@@ -25,7 +25,7 @@ const Landing = () => {
         <a href="/adminLogin">
           <button
             type="text"
-            className="h-16 w-full bg-[#D9D9D9] text-[#696969] rounded-xl text-xl"
+            className="h-16 w-full bg-[#F1E7E7] text-[#696969] rounded-xl text-xl"
           >
             Login As Admin
           </button>
