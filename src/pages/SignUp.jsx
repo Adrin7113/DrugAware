@@ -8,8 +8,10 @@ import {
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     const proceed = document.getElementById("proceedButton");
     proceed.classList.add("hidden");
@@ -40,6 +42,7 @@ const SignUp = () => {
       console.log(error);
     } else {
       setSubmitted("Submitted");
+      navigate("/");
     }
     const { errorRead } = await supabase.from("UserRead").insert({
       userId: userid,
@@ -59,31 +62,31 @@ const SignUp = () => {
             type="text"
             id="phone"
             placeholder="Phone Number"
-            className="h-16 w-full bg-[#EDE7E7] text-[#696969] rounded-xl text-xl px-5"
+            className="h-16 w-full bg-[#F1E7E7] text-[#696969] rounded-xl text-xl px-5"
           />
           <input
             type="text"
             id="password"
             placeholder="Password"
-            className="h-16 w-full bg-[#EDE7E7] text-[#696969] rounded-xl text-xl px-5"
+            className="h-16 w-full bg-[#F1E7E7] text-[#696969] rounded-xl text-xl px-5"
           />
           <input
             type="text"
             id="captcha"
             placeholder="Captcha"
-            className="h-16 w-full bg-[#EDE7E7] text-[#696969] rounded-xl text-xl px-5"
+            className="h-16 w-full bg-[#F1E7E7] text-[#696969] rounded-xl text-xl px-5"
           />
           <LoadCanvasTemplate reloadColor="#000000" />
           <button
             onClick={() => captcha()}
-            className="h-16 w-full bg-[#D9D9D9] text-[#696969] rounded-xl text-xl"
+            className="h-16 w-full bg-[#F1E7E7] text-[#696969] rounded-xl text-xl"
           >
             Verify
           </button>
           <button
             id="proceedButton"
             onClick={() => sign()}
-            className="h-16 w-full bg-[#D9D9D9] text-[#696969] rounded-xl text-xl"
+            className="h-16 w-full bg-[#F1E7E7] text-[#696969] rounded-xl text-xl"
           >
             {submitted}
           </button>
