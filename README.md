@@ -1,4 +1,4 @@
-# DrugAware - A Mobile App for Drug Abuse Prevention and Reporting
+# Prevnt - A Mobile App for Drug Abuse Prevention and Reporting
 
 > Addiction Is The Disease That Makes You Too Selfish
 To See The Havoc You Created Or
